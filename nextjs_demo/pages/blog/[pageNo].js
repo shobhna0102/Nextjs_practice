@@ -7,7 +7,7 @@ export const getStaticPaths = async () => {
   const paths = data.map((curElem) => {
     return {
       params: {
-        pageno: curElem.id.toString(),
+        pageNo: curElem.id.toString(),
       },
     };
   });
@@ -19,7 +19,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const id = context.params.pageno;
+  const id = context.params.pageNo;
   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
   const data = await res.json();
 

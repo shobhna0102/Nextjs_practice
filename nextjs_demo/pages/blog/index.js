@@ -4,7 +4,7 @@ import Link from "next/link";
 export const getStaticProps = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
   const data = await res.json();
-
+  
   return {
     props: {
       data,
@@ -13,10 +13,11 @@ export const getStaticProps = async () => {
 };
 
 const blog = ({ data }) => {
+ 
   return (
     <>
       <Navbar />
-      {data.slice(0, 5).map((curElem) => {
+      {data.slice(0, 6).map((curElem) => {
         return (
           <div key={curElem.id} className="ssr-styles">
             <h3>{curElem.id}</h3>
